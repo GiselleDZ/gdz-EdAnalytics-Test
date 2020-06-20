@@ -1,12 +1,14 @@
 import React from 'react'
 import axios from 'axios'
 import SchoolInfo from '../schoolInfo/SchoolInfo'
+import Programs from '../programs/Programs'
 
 export default class Home extends React.Component{
     constructor(){
         super()
         this.state = {
-            latestYear: {},
+            latestInfo: {},
+            latestYear: 0,
             schoolName: '',
             schoolAlias: '',
             website: '',
@@ -27,7 +29,8 @@ export default class Home extends React.Component{
         let { search, alias, school_url, city, state, zip } = info.school
 
         this.setState({
-            latestYear: info[max],
+            latestInfo: info[max],
+            latestYear: max,
             schoolName: search,
             schoolAlias: alias,
             website: school_url,
@@ -41,6 +44,7 @@ export default class Home extends React.Component{
         return(
             <div>
                 <SchoolInfo schoolInfo={this.state} />
+                <Programs programInfo={this.state.latestInfo} />
             </div>
         )
     }
