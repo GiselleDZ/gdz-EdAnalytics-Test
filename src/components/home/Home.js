@@ -1,51 +1,46 @@
-import React from 'react'
-import axios from 'axios'
+import React, { Component } from 'react'
 import SchoolInfo from '../schoolInfo/SchoolInfo'
 import Programs from '../programs/Programs'
+import {connect} from 'react-redux'
+import { fetchSchoolData } from '../../store/schools'
 
-export default class Home extends React.Component{
-    constructor(){
-        super()
-        this.state = {
-            latestInfo: {},
-            latestYear: 0,
-            schoolName: '',
-            schoolAlias: '',
-            website: '',
-            city: '',
-            state: '',
-            zip: 0,
-            nOfStudents: 0,
-        }
-    }
-    async componentDidMount(){
-        const response = await axios.get("https://api.data.gov/ed/collegescorecard/v1/schools/?school.operating=1&2015.academics.program_available.assoc_or_bachelors=true&2015.student.size__range=1..&school.degrees_awarded.predominant__range=1..3&school.degrees_awarded.highest__range=2..4&id=240444&api_key=wD8BIFPBCNXc0SYRLFGzgwlxGyqxgca2hSZnRKdK")
-        const info = response.data.results[0]
-        let max = 0
-        for ( let key in info ){
-            max = (max < parseFloat(key) ? parseFloat(key) : max )
-        }
-        const { undergrad_12_month, grad_12_month } = info[max].student.enrollment
-        let { search, alias, school_url, city, state, zip } = info.school
+class Home extends Component{
 
-        this.setState({
-            latestInfo: info[max],
-            latestYear: max,
-            schoolName: search,
-            schoolAlias: alias,
-            website: school_url,
-            city: city,
-            state: state,
-            zip: parseInt(zip),
-            nOfStudents: grad_12_month + undergrad_12_month
-        })
+    componentDidMount(props){
+        this.props.getSchoolData()
     }
     render(){
+        const { latestYear, schoolName, schoolAlias, website, city, zip, schoolState, nOfStudents, programPercentages } = this.props
+        const schoolInfo = {latestYear, schoolName, schoolAlias, website, city, zip, schoolState, nOfStudents}
         return(
+            programPercentages.education ?
             <div>
-                <SchoolInfo schoolInfo={this.state} />
-                <Programs programInfo={this.state.latestInfo} />
+                <SchoolInfo schoolInfo={schoolInfo} />
+                <Programs programPercentages={programPercentages} />
             </div>
+            : ('')
         )
     }
 }
+
+const mapState = state => {
+    const { latestInfo, programPercentages, latestYear, schoolName, schoolAlias, website, city, schoolState, zip, nOfStudents } = state.school
+    return {
+    latestInfo: latestInfo,
+    programPercentages: programPercentages,
+    latestYear: latestYear,
+    schoolName: schoolName,
+    schoolAlias: schoolAlias,
+    website: website,
+    city: city,
+    schoolState: schoolState,
+    zip: zip,
+    nOfStudents: nOfStudents
+}
+}
+
+const mapDispatch = dispatch => ({
+    getSchoolData : () => dispatch(fetchSchoolData())
+})
+
+export default connect( mapState, mapDispatch)(Home)
