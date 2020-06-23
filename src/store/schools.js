@@ -39,7 +39,6 @@ export default function schoolReducer (state = initialState, action ){
     switch (action.type){
         case GET_SCHOOL_DATA:
             const info = action.school
-            // console.log(info)
             let max = 0
             for ( let key in info ){
                 max = (max < parseFloat(key) ? parseFloat(key) : max )
@@ -52,10 +51,11 @@ export default function schoolReducer (state = initialState, action ){
             for ( let key in programs ){
                 programPercentages[key] = programs[key]
             }
-
+            const raceEthnicity = info[max].student.demographics.race_ethnicity
             return {
                 ...state,
                 latestInfo: info[max],
+                raceEthnicity: raceEthnicity,
                 programPercentages: programPercentages,
                 latestYear: max,
                 schoolName: search,

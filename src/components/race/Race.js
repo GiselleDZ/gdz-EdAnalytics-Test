@@ -5,12 +5,11 @@ import { VictoryPie } from "victory";
 import PieThemes from '../pies/PieThemes'
 import CustomLabel from '../pies/CustomVictoryLabel'
 import { cleanUpDataForPie } from '../../utils/utils'
-import './programs.css'
 
-class Programs extends Component {
+class Race extends Component {
     render(){
-        const { programPercentages } = this.props
-        const data = cleanUpDataForPie(programPercentages)
+        const { raceEthnicity } = this.props
+        const data = cleanUpDataForPie(raceEthnicity)
         return (
             <section className="pies">
                 <div className="Pie">
@@ -49,7 +48,7 @@ class Programs extends Component {
 }
 
 const mapState = state => ({
-    programPercentages: state.school.programPercentages
+    raceEthnicity: state.school.raceEthnicity
 })
 
-export default connect( mapState, null)(Programs)
+export default connect( mapState, null)(Race)

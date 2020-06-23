@@ -1,0 +1,13 @@
+.pies{
+    display: flex;
+    flex-direction: column;
+    width: 100;
+}
+
+.pies .pie{
+    width: 50%;
+}
+
+.victory svg{
+    width: 200;
+}
