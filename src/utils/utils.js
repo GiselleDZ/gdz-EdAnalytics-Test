@@ -35,12 +35,19 @@ export function cleanUpDataForPie (messyData) {
     Object.entries(messyData).forEach((key,index) => {
         let dataPoint = key[0]
         let value = key[1] * 100
+        if ( dataPoint === "nhpi" ){
+            dataPoint = "Native Hawaiian and Pacific Islander"
+        }
+        if ( dataPoint === "aian" ){
+            dataPoint = "Native American and Alaska Native"
+        }
         if (value !== 0 && value !== null && dataPoint !== "non_resident_alien"){
-            console.log(dataPoint, value)
-            neatData[index] = {x: longStringNewLine(capitalize(replaceUnderscored(dataPoint))), y: value < 1 && value > 0.001 ? 1 : parseInt(value)}
+            neatData[index] = {
+                x: longStringNewLine(capitalize(replaceUnderscored(dataPoint))),
+                y: value < 1 && value > 0.001 ? 1 : parseInt(value)
+            }
         }
     })
-    console.log(neatData)
     return neatData
 }
 

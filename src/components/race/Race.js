@@ -13,25 +13,6 @@ class Race extends Component {
         return (
             <section className="pies">
                 <div className="Pie">
-                    {/* <VictoryPie
-                        className= "victory"
-                        data= { data }
-                        height={200}
-                        innerRadius={20}
-                        theme={PieThemes}
-                        // labels={({datum}) => datum.x + ': ' + datum.y + '%'}
-                        labelComponent={
-                            <VictoryTooltip
-                                flyoutHeight={20}
-                                pointerLength={5}
-                                pointerWidth={5}
-                                text={({datum}) => `${datum.x}: ${datum.y}%`}
-                                style={{ fontSize: 8, wordWrap: true }}
-                                flyoutStyle={{ stroke: "tomato", strokeWidth: .2}}
-                                constrainToVisibleArea
-                                />
-                            }
-                    /> */}
                     <VictoryPie
                         width={400}
                         style={{ labels: { fill: "white" } }}

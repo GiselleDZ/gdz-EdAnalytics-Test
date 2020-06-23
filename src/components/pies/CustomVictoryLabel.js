@@ -1,8 +1,7 @@
-/* eslint-disable no-unused-vars */
 import React, { Component } from 'react';
 import {  VictoryLabel, VictoryTooltip } from "victory";
 
-export default class CustomLabel extends React.Component {
+export default class CustomLabel extends Component {
     render() {
         return (
             <g>
