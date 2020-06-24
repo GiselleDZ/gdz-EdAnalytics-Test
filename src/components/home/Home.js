@@ -4,25 +4,24 @@ import SchoolInfo from '../schoolInfo/SchoolInfo'
 import {connect} from 'react-redux'
 import { fetchSchoolData } from '../../store/schools'
 import ReactToPrint, { PrintContextConsumer } from 'react-to-print'
+import CsvDownload from 'react-json-to-csv'
 
 class Home extends Component{
-
     componentDidMount(props){
         this.props.getSchoolData()
     }
     render(){
-        const { latestYear, schoolName, schoolAlias, website, city, zip, schoolState, nOfStudents, programPercentages } = this.props
-        console.log(this.props)
-        const schoolInfo = {latestYear, schoolName, schoolAlias, website, city, zip, schoolState, nOfStudents}
+        const { programPercentages, csvData, schoolName, latestYear } = this.props
         return(
             programPercentages.education ?
             <div>
-                <SchoolInfo schoolInfo={schoolInfo} ref={el => (this.componentRef = el)}/>
+                <SchoolInfo ref={el => (this.componentRef = el)} />
                 <ReactToPrint content={() => this.componentRef}>
                     <PrintContextConsumer>
                         {({ handlePrint }) => (<button onClick={handlePrint}>Print this out!</button>)}
                     </PrintContextConsumer>
                 </ReactToPrint>
+                <CsvDownload data={csvData} filename={`${schoolName}_${latestYear}_data`}/>
             </div>
             : ('')
         )
@@ -30,11 +29,13 @@ class Home extends Component{
 }
 
 const mapState = state => {
-    const { latestInfo, raceEthnicity, programPercentages, latestYear, schoolName, schoolAlias, website, city, schoolState, zip, nOfStudents } = state.school
+    const { csvData, latestInfo, raceEthnicity, programPercentages, testScores, latestYear, schoolName, schoolAlias, website, city, schoolState, zip, nOfStudents } = state.school
     return {
+        csvData: csvData,
         latestInfo: latestInfo,
         raceEthnicity: raceEthnicity,
         programPercentages: programPercentages,
+        testScores: testScores,
         latestYear: latestYear,
         schoolName: schoolName,
         schoolAlias: schoolAlias,

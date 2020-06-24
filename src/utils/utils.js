@@ -51,3 +51,8 @@ export function cleanUpDataForPie (messyData) {
     return neatData
 }
 
+export function cleanUpTestData (messyData) {
+    const cleanData = []
+
+    return cleanData
+}

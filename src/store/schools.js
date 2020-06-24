@@ -8,11 +8,6 @@ const gotSchoolData = school => ({
     school
 })
 
-const caughtError = error => ({
-    type: CATCH_ERROR,
-    error
-})
-
 export const fetchSchoolData = () => async dispatch => {
     try {
         const {data} = await axios.get("https://api.data.gov/ed/collegescorecard/v1/schools/?school.operating=1&2015.academics.program_available.assoc_or_bachelors=true&2015.student.size__range=1..&school.degrees_awarded.predominant__range=1..3&school.degrees_awarded.highest__range=2..4&id=240444&api_key=wD8BIFPBCNXc0SYRLFGzgwlxGyqxgca2hSZnRKdK")
@@ -25,6 +20,8 @@ export const fetchSchoolData = () => async dispatch => {
 const initialState = {
     latestInfo: {},
     programPercentages: {},
+    raceEthnicity: {},
+    testScores: {},
     latestYear: 0,
     schoolName: '',
     schoolAlias: '',
@@ -51,12 +48,38 @@ export default function schoolReducer (state = initialState, action ){
             for ( let key in programs ){
                 programPercentages[key] = programs[key]
             }
+            const testScores = info[max].admissions.sat_scores
+            const satScores = {}
+            for ( let key in testScores ){
+                for (let score in testScores[key]){
+                    if ( testScores[key][score] !== null && score !== 'by_ope_id' ){
+                        satScores[`${key}_${score}`] = testScores[key][score]
+                    }
+                }
+            }
             const raceEthnicity = info[max].student.demographics.race_ethnicity
+            const jsData = [
+                {schoolData: {
+                    dataYear: max,
+                    schoolName: search,
+                    schoolAlias: alias,
+                    website: school_url,
+                    city: city,
+                    state: schoolState,
+                    zip: zip,
+                    nOfStudents: grad_12_month + undergrad_12_month
+                }},
+                {satScores: satScores},
+                {raceEthnicity: raceEthnicity},
+                {programPercentages: programPercentages}
+            ]
             return {
                 ...state,
+                csvData: jsData,
                 latestInfo: info[max],
                 raceEthnicity: raceEthnicity,
                 programPercentages: programPercentages,
+                satScores: satScores,
                 latestYear: max,
                 schoolName: search,
                 schoolAlias: alias,
