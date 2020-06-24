@@ -1,8 +1,8 @@
-This project is an interview assignment for Education Analytics Junior Dev position. It was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Please direct any questions to my [e-mail](gz@gisellezatonyl.com)
+This project is an interview assignment for Education Analytics Junior Dev position. It was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+Please direct any questions to my [e-mail](gz@gisellezatonyl.com)
 
-In the project directory, you can run:
+To view the project, please clone, fork or download the repository, cd into the directory and follow the directions below.
 
 ### `npm start`
 
@@ -11,6 +11,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
+
+## Other available Scripts
+
+In the project directory, you can run:
 
 ### `npm test`
 
