@@ -12,9 +12,10 @@ class Race extends Component {
         const data = cleanUpDataForPie(raceEthnicity)
         return (
             <section className="pies">
-                <h3>Race and Ethnicity</h3>
+                <h4 className="title">Race and Ethnicity</h4>
                 <div className="Pie">
                     <VictoryPie
+                        theme={PieThemes}
                         width={400}
                         style={{ labels: { fill: "white" } }}
                         innerRadius={100}

@@ -14,7 +14,7 @@ export default class CustomLabel extends Component {
                     cornerRadius={75}
                     flyoutWidth={150}
                     flyoutHeight={150}
-                    flyoutStyle={{ fill: "black" }}
+                    flyoutStyle={{ fill: "#3f51b5" }}
                     text={({datum}) => datum.y === 1 ? `${datum.x}:\n less than ${datum.y}%` : `${datum.x}:\n ${datum.y}%`}
                     style={{ fontSize: 14, fill: "white"}}
                 />

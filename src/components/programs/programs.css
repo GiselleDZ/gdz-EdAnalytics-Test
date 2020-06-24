@@ -1,13 +1,9 @@
+.title{
+    font-size: medium;
+    color: #3f51b5;
+}
+
 .pies{
     display: flex;
     flex-direction: column;
-    width: 100;
-}
-
-.pies .pie{
-    width: 50%;
-}
-
-.victory svg{
-    width: 200;
 }

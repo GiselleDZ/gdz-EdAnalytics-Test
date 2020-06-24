@@ -4,7 +4,7 @@ import Programs from '../programs/Programs'
 import Race from '../race/Race'
 import TestScores from '../testScores/TestScores'
 import Pdf from "react-to-pdf";
-import {Button, Container} from '@material-ui/core/'
+import {Button} from '@material-ui/core/'
 import './schoolInfo.css'
 
 class SchoolInfo extends Component {
@@ -12,7 +12,7 @@ class SchoolInfo extends Component {
         const { schoolName, schoolAlias, website, city, schoolState, zip, nOfStudents, latestYear } = this.props
         const ref = React.createRef();
         return(
-            <div className="main">
+            <div>
                 <div className="button">
                     <Pdf targetRef={ref} filename={`${schoolName}_${latestYear}_Data_Analysis`}>
                         {({ toPdf }) => <Button color="primary" variant="contained" size="small" onClick={toPdf}>Generate PDF</Button>}

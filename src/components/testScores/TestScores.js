@@ -14,9 +14,9 @@ class TestScores extends Component {
         const data= fullData[3]
         return (
             <section className="pies">
-                <h3>SAT Test Scores</h3>
+                <h4 className="title">SAT Test Scores</h4>
                 <div className="barChart">
-                    <VictoryChart domainPadding={{ y: 60, x: 60 }} padding={100} height={400}>
+                    <VictoryChart domainPadding={{ y: 60, x: 60 }} padding={100} height={400} >
                         <VictoryGroup offset={30} style={{ data: { width: 20 }}}  >
                         {data.map((subject, j) => {
                             let label= fullData[j]

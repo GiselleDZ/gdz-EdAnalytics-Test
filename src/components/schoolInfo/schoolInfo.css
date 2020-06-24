@@ -1,5 +1,6 @@
 .main{
-    font-family: 'Roboto', sans-serif
+    font-family: 'Roboto', sans-serif;
+    font-size: x-small;
 }
 .schoolInfo {
     padding: 20px;
@@ -33,4 +34,8 @@
     color:white;
     text-decoration: none;
     padding: 0;
+}
+
+.aboutSchool{
+    font-size: small;
 }

@@ -13,9 +13,9 @@ class Programs extends Component {
         const data = cleanUpDataForPie(programPercentages)
         return (
             <section className="pies">
-                <h3>Program Percentages</h3>
-                <div className="Pie">
-                    <VictoryPie
+                <h4 className="title">Program Percentages</h4>
+                <VictoryPie
+                        theme={PieThemes}
                         width={400}
                         style={{ labels: { fill: "white" } }}
                         innerRadius={100}
@@ -23,7 +23,6 @@ class Programs extends Component {
                         labelComponent={<CustomLabel />}
                         data={ data }
                     />
-                </div>
             </section>
         )
     }

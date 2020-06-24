@@ -1,13 +1,13 @@
 import { assign } from "lodash"
 
 const colors = [
-    "#E64A2C",
-    "#525252",
-    "#737373",
-    "#969696",
-    "#bdbdbd",
-    "#d9d9d9",
-    "#f0f0f0"
+    "#b2b9e1",
+    "#9fa8da",
+    "#8b96d2",
+    "#7885cb",
+    "#6573c3",
+    "#5262bc",
+    "#3f51b5"
 ];
 const charcoal = "#E64A2C";
 const grey = "#969696";
