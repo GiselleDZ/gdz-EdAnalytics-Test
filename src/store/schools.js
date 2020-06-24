@@ -21,7 +21,7 @@ const initialState = {
     latestInfo: {},
     programPercentages: {},
     raceEthnicity: {},
-    testScores: {},
+    satScores: {},
     latestYear: 0,
     schoolName: '',
     schoolAlias: '',

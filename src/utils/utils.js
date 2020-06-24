@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 export function replaceUnderscored (str) {
     if( str.includes('_') ){
         let tempArray = []
@@ -52,7 +53,35 @@ export function cleanUpDataForPie (messyData) {
 }
 
 export function cleanUpTestData (messyData) {
-    const cleanData = []
-
+    let cleanData = []
+    const array= Object.entries(messyData)
+    array.shift()
+    console.log(array)
+    array.map((rating, ind) => {
+        let title= rating[0]
+        let workingTitle= ""
+        let preX = ""
+        title.split("_").map((word, inx )=> {
+            if (inx === 0){
+                workingTitle = word
+            }
+            else if (inx === 1 && word.includes("percentile")){
+                workingTitle += (" " + word)
+            }
+            else if(preX === ""){
+                preX = word
+            }
+            else {
+                preX += (" " + word)
+            }
+        })
+        if ( ! cleanData.includes(capitalize(workingTitle)) ){
+            cleanData[ind/2] = capitalize(workingTitle)
+        }
+        cleanData[ind + 3] = { x: capitalize(preX), y: rating[1] }
+        workingTitle= ""
+    })
+    cleanData = [cleanData[0], cleanData[1], cleanData[2], [[cleanData[3], cleanData[4]], [cleanData[5], cleanData[6]], [cleanData[7], cleanData[8]]]]
+    console.log(cleanData)
     return cleanData
 }

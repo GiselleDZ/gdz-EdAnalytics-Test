@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import SchoolInfo from '../schoolInfo/SchoolInfo'
-// import Programs from '../programs/Programs'
 import {connect} from 'react-redux'
 import { fetchSchoolData } from '../../store/schools'
 import ReactToPrint, { PrintContextConsumer } from 'react-to-print'
 import CsvDownload from 'react-json-to-csv'
+import Button from '@material-ui/core/Button'
+import './home.css'
 
 class Home extends Component{
     componentDidMount(props){
@@ -14,14 +15,19 @@ class Home extends Component{
         const { programPercentages, csvData, schoolName, latestYear } = this.props
         return(
             programPercentages.education ?
-            <div>
+            <div >
+                <div className="button">
+                    <ReactToPrint content={() => this.componentRef} className="print">
+                        <PrintContextConsumer>
+                            {({ handlePrint }) => (<Button onClick={handlePrint} variant="contained" color="primary"> Print this out!</Button>)}
+                        </PrintContextConsumer>
+                    </ReactToPrint>
+                </div>
+
                 <SchoolInfo ref={el => (this.componentRef = el)} />
-                <ReactToPrint content={() => this.componentRef}>
-                    <PrintContextConsumer>
-                        {({ handlePrint }) => (<button onClick={handlePrint}>Print this out!</button>)}
-                    </PrintContextConsumer>
-                </ReactToPrint>
-                <CsvDownload data={csvData} filename={`${schoolName}_${latestYear}_data`}/>
+                <div>
+                    <CsvDownload data={csvData} filename={`${schoolName}_${latestYear}_data`}/>
+                </div>
             </div>
             : ('')
         )
