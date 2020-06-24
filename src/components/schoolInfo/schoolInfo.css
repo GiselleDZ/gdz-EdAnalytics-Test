@@ -4,6 +4,14 @@
 .schoolInfo {
     padding: 20px;
     margin: 40px;
+    border: 1px;
+    border-color: #3f51b5;
+    border-style: solid;
+    border-radius: 5px;
+    background-color: #757de8;
+    color: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1)
 }
 
 .schoolName {
@@ -16,8 +24,13 @@
     font-size: medium;
 }
 
+.location{
+    font-size: small;
+}
+
 .schoolLink{
     font-size: small;
-    color: #3f51b5;
+    color:white;
     text-decoration: none;
+    padding: 0;
 }

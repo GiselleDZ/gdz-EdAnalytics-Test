@@ -18,35 +18,31 @@ class SchoolInfo extends Component {
                         {({ toPdf }) => <Button color="primary" variant="contained" size="small" onClick={toPdf}>Generate PDF</Button>}
                     </Pdf>
                 </div>
-                <div ref={ref} className="schoolInfo">
-                        <Container maxWidth="sm">
-                            <section>
-                                <h1 className="schoolName">{schoolName}</h1>
+                <div ref={ref}>
+                    <div className="schoolInfo">
+                        <section >
+                            <h1 className="schoolName">{schoolName}</h1>
                                 {
                                     schoolAlias === null ? '' : <h2 className="schoolAlias">{schoolAlias}</h2>
                                 }
+                                <p className="location">{city} , {schoolState} {zip}</p>
                                 <a href={website}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="schoolLink"
                                     >
-                                        <Button color="secondary" variant="outlined" size="small">
-                                            Visit the {schoolName} website
+                                        <Button color="primary" variant="contained" size="small">Visit the {schoolName} website
                                         </Button>
                                 </a>
-                                <p className="location">{city} , {schoolState} {zip}</p>
-                            </section>
-                            <section className="aboutSchool">
-                                    <p> The {schoolName} had a total of {nOfStudents} students in the latest reported academic year, {latestYear}. </p>
-                            </section>
-                        </Container>
-                        <Container maxWidth="sm">
-                            <section className="charts">
-                                <Programs />
-                                <Race />
-                                <TestScores />
-                            </section>
-                        </Container>
+                        </section>
+                        <section className="aboutSchool">
+                                <p> The {schoolName} had a total of {nOfStudents} students in the latest reported academic year, {latestYear}. </p>
+                        </section>
+                    </div>
+                    <section className="charts">
+                        <Programs />
+                        <Race />
+                        <TestScores />
+                    </section>
                 </div>
             </div>
         )
