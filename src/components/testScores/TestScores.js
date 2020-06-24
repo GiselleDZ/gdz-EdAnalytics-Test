@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { VictoryChart, VictoryGroup, VictoryBar, VictoryTheme } from "victory";
-import PieThemes from '../pies/PieThemes'
+import PieThemesVariant from '../pies/PieThemeVariant'
 import { cleanUpTestData } from '../../utils/utils'
 
 class TestScores extends Component {
@@ -16,8 +16,8 @@ class TestScores extends Component {
             <section className="pies">
                 <h4 className="title">SAT Test Scores</h4>
                 <div className="barChart">
-                    <VictoryChart domainPadding={{ y: 60, x: 60 }} padding={100} height={400} >
-                        <VictoryGroup offset={30} style={{ data: { width: 20 }}}  >
+                    <VictoryChart domainPadding={{ y: 80, x: 80 }} padding={120} height={500} theme={PieThemesVariant}>
+                        <VictoryGroup offset={30} style={{ data: { width: 20 }}} >
                         {data.map((subject, j) => {
                             let label= fullData[j]
                             return <VictoryBar
