@@ -56,7 +56,6 @@ export function cleanUpTestData (messyData) {
     let cleanData = []
     const array= Object.entries(messyData)
     array.shift()
-    console.log(array)
     array.map((rating, ind) => {
         let title= rating[0]
         let workingTitle= ""
@@ -82,6 +81,5 @@ export function cleanUpTestData (messyData) {
         workingTitle= ""
     })
     cleanData = [cleanData[0], cleanData[1], cleanData[2], [[cleanData[3], cleanData[4]], [cleanData[5], cleanData[6]], [cleanData[7], cleanData[8]]]]
-    console.log(cleanData)
     return cleanData
 }

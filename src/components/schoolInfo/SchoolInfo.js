@@ -5,20 +5,21 @@ import Race from '../race/Race'
 import TestScores from '../testScores/TestScores'
 import Pdf from "react-to-pdf";
 import {Button, Container} from '@material-ui/core/'
+import './schoolInfo.css'
 
 class SchoolInfo extends Component {
     render(){
-        const { schoolName, schoolAlias, website, city, state, zip, nOfStudents, latestYear } = this.props
+        const { schoolName, schoolAlias, website, city, schoolState, zip, nOfStudents, latestYear } = this.props
         const ref = React.createRef();
         return(
-            <div classname="main">
+            <div className="main">
                 <div className="button">
                     <Pdf targetRef={ref} filename={`${schoolName}_${latestYear}_Data_Analysis`}>
-                        {({ toPdf }) => <Button color="primary" variant="contained" onClick={toPdf}>Generate PDF</Button>}
+                        {({ toPdf }) => <Button color="primary" variant="contained" size="small" onClick={toPdf}>Generate PDF</Button>}
                     </Pdf>
                 </div>
                 <div ref={ref} className="schoolInfo">
-                        <Container maxWidth="fixed">
+                        <Container maxWidth="sm">
                             <section>
                                 <h1 className="schoolName">{schoolName}</h1>
                                 {
@@ -29,15 +30,17 @@ class SchoolInfo extends Component {
                                     rel="noopener noreferrer"
                                     className="schoolLink"
                                     >
-                                        Visit the {schoolName} website
+                                        <Button color="secondary" variant="outlined" size="small">
+                                            Visit the {schoolName} website
+                                        </Button>
                                 </a>
-                                <p className="location">{city} , {state} {zip}</p>
+                                <p className="location">{city} , {schoolState} {zip}</p>
                             </section>
                             <section className="aboutSchool">
                                     <p> The {schoolName} had a total of {nOfStudents} students in the latest reported academic year, {latestYear}. </p>
                             </section>
                         </Container>
-                        <Container maxWidth="fixed">
+                        <Container maxWidth="sm">
                             <section className="charts">
                                 <Programs />
                                 <Race />

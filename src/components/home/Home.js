@@ -19,14 +19,14 @@ class Home extends Component{
                 <div className="button">
                     <ReactToPrint content={() => this.componentRef} className="print">
                         <PrintContextConsumer>
-                            {({ handlePrint }) => (<Button onClick={handlePrint} variant="contained" color="primary"> Print this out!</Button>)}
+                            {({ handlePrint }) => (<Button onClick={handlePrint} variant="contained" color="primary" size="small"> Print this out!</Button>)}
                         </PrintContextConsumer>
                     </ReactToPrint>
                 </div>
 
                 <SchoolInfo ref={el => (this.componentRef = el)} />
                 <div>
-                    <CsvDownload data={csvData} filename={`${schoolName}_${latestYear}_data`}/>
+                    <CsvDownload data={csvData} filename={`${schoolName}_${latestYear}_data`} button={<Button />}/>
                 </div>
             </div>
             : ('')

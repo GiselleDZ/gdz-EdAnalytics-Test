@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is an interview assignment for Education Analytics Junior Dev position. It was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Please direct any questions to my [e-mail](gz@gisellezatonyl.com)
 
 ## Available Scripts
 

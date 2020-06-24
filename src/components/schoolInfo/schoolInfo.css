@@ -7,7 +7,17 @@
 }
 
 .schoolName {
-    font-weight: 900;
+    font-weight: bolder;
+    font-size: x-large;
 }
 
+.schoolAlias{
+    font-weight: 500;
+    font-size: medium;
+}
 
+.schoolLink{
+    font-size: small;
+    color: #3f51b5;
+    text-decoration: none;
+}
