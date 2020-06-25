@@ -1,10 +1,25 @@
 .button{
-    margin: 10px;
+    margin: 15px;
 }
 
 .CSV-button{
-    margin: 10px;
-    padding: 10px;
+    padding: 15px;
     background-color: #3f51b5;
     color: white;
+    -webkit-box-shadow: -2px -8px 11px 0px rgba(159,168,218,1);
+    -moz-box-shadow: -2px -8px 11px 0px rgba(159,168,218,1);
+    box-shadow: -2px -8px 11px 0px rgba(159,168,218,1);
+    border-top-left-radius: 5px ;
+    border-top-right-radius: 5px;
+}
+
+.CSV-button button{
+    padding: 15px;
+    background-color: #5262bc;
+    color: white;
+    border-radius: 5px;
+    border-color: #7885cb;
+    -webkit-box-shadow: -8px -5px 8px -3px rgba(159,168,218,0.25);
+    -moz-box-shadow: -8px -5px 8px -3px rgba(159,168,218,0.25);
+    box-shadow: -8px -5px 8px -3px rgba(159,168,218,0.25);
 }

@@ -16,6 +16,7 @@ class Home extends Component{
         return(
             programPercentages.education ?
             <div >
+                <SchoolInfo ref={el => (this.componentRef = el)} />
                 <div className="button">
                     <ReactToPrint content={() => this.componentRef} className="print">
                         <PrintContextConsumer>
@@ -24,8 +25,7 @@ class Home extends Component{
                     </ReactToPrint>
                 </div>
 
-                <SchoolInfo ref={el => (this.componentRef = el)} />
-                <div className="CSV-button">
+                <div className="CSV-button" width={window.width}>
                     <CsvDownload data={csvData} className="CSV-button" filename={`${schoolName}_${latestYear}_data`} />
                 </div>
             </div>

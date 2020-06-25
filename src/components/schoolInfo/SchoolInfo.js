@@ -13,11 +13,6 @@ class SchoolInfo extends Component {
         const ref = React.createRef();
         return(
             <div>
-                <div className="button">
-                    <Pdf targetRef={ref} filename={`${schoolName}_${latestYear}_Data_Analysis`}>
-                        {({ toPdf }) => <Button color="primary" variant="contained" size="small" onClick={toPdf}>Generate PDF</Button>}
-                    </Pdf>
-                </div>
                 <div ref={ref}>
                     <div className="schoolInfo">
                         <section >
@@ -48,6 +43,11 @@ class SchoolInfo extends Component {
                         <Race />
                         <TestScores />
                     </section>
+                </div>
+                <div className="button">
+                    <Pdf targetRef={ref} filename={`${schoolName}_${latestYear}_Data_Analysis`}>
+                        {({ toPdf }) => <Button color="primary" variant="contained" size="small" onClick={toPdf}>Generate PDF</Button>}
+                    </Pdf>
                 </div>
             </div>
         )

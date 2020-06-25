@@ -11,9 +11,9 @@
     border-radius: 5px;
     background-color: #d8dcf0;
     color: #7885cb;
-    -webkit-box-shadow: 19px 17px 9px -14px rgba(120,133,203,1);
-    -moz-box-shadow: 19px 17px 9px -14px rgba(120,133,203,1);
-    box-shadow: 19px 17px 9px -14px rgba(120,133,203,1);
+    -webkit-box-shadow: -8px -5px 8px -3px rgba(178,185,225,1);
+    -moz-box-shadow: -8px -5px 8px -3px rgba(178,185,225,1);
+    box-shadow: -8px -5px 8px -3px rgba(178,185,225,1);
 }
 
 .schoolName {

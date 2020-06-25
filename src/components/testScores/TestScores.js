@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { VictoryChart, VictoryGroup, VictoryBar, VictoryTheme } from "victory";
 import PieThemesVariant from '../pies/PieThemeVariant'
 import { cleanUpTestData } from '../../utils/utils'
+import './testScores.css'
 
 class TestScores extends Component {
     render(){
