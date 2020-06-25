@@ -25,8 +25,8 @@ class Home extends Component{
                 </div>
 
                 <SchoolInfo ref={el => (this.componentRef = el)} />
-                <div>
-                    <CsvDownload data={csvData} filename={`${schoolName}_${latestYear}_data`} button={<Button />}/>
+                <div className="CSV-button">
+                    <CsvDownload data={csvData} className="CSV-button" filename={`${schoolName}_${latestYear}_data`} />
                 </div>
             </div>
             : ('')
