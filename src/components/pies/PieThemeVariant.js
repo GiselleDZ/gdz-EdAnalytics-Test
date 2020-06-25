@@ -1,13 +1,13 @@
 import { assign } from "lodash"
 
 const colors = [
-    "#b2b9e1",
-    "#9fa8da",
-    "#8b96d2",
     "#7885cb",
     "#6573c3",
     "#5262bc",
-    "#3f51b5"
+    "#3f51b5",
+    "#b2b9e1",
+    "#9fa8da",
+    "#8b96d2",
 ];
 const royal = "#3f51b5";
 const lightRoyal = "#5262bc";

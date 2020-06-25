@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { VictoryPie, VictoryTheme } from "victory";
-import PieThemes from '../pies/PieThemes'
+import PieThemeVariant from '../pies/PieThemeVariant'
 import CustomLabel from '../pies/CustomVictoryLabel'
 import { cleanUpDataForPie } from '../../utils/utils'
 import './programs.css'
@@ -15,7 +15,7 @@ class Programs extends Component {
             <section className="pies">
                 <h4 className="title">Program Percentages</h4>
                 <VictoryPie
-                        theme={PieThemes}
+                        theme={PieThemeVariant}
                         width={400}
                         style={{ labels: { fill: "white" } }}
                         innerRadius={100}

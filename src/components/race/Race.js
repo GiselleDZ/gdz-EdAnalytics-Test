@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { VictoryPie, VictoryTheme } from "victory";
-import PieThemes from '../pies/PieThemes'
+import PieThemeVariant from '../pies/PieThemeVariant'
 import CustomLabel from '../pies/CustomVictoryLabel'
 import { cleanUpDataForPie } from '../../utils/utils'
 
@@ -15,7 +15,7 @@ class Race extends Component {
                 <h4 className="title">Race and Ethnicity</h4>
                 <div className="Pie">
                     <VictoryPie
-                        theme={PieThemes}
+                        theme={PieThemeVariant}
                         width={400}
                         style={{ labels: { fill: "white" } }}
                         innerRadius={100}

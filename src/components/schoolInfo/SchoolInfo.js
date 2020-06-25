@@ -21,21 +21,26 @@ class SchoolInfo extends Component {
                 <div ref={ref}>
                     <div className="schoolInfo">
                         <section >
-                            <h1 className="schoolName">{schoolName}</h1>
+                            <p className="schoolName">{schoolName}</p>
                                 {
-                                    schoolAlias === null ? '' : <h2 className="schoolAlias">{schoolAlias}</h2>
+                                    schoolAlias === null ? '' :
+                                    <p className="schoolAlias">
+                                        Also {schoolAlias}
+                                    </p>
                                 }
-                                <p className="location">{city} , {schoolState} {zip}</p>
-                                <a href={website}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    >
-                                        <Button color="primary" variant="contained" size="small">Visit the {schoolName} website
-                                        </Button>
-                                </a>
-                        </section>
-                        <section className="aboutSchool">
-                                <p> The {schoolName} had a total of {nOfStudents} students in the latest reported academic year, {latestYear}. </p>
+                            <p className="location">{city} , {schoolState} {zip}</p>
+                            <p className="aboutSchool">
+                                The {schoolName} had a total of {nOfStudents} students in the latest reported academic year, {latestYear}.
+                            </p>
+                            <a href={website}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="schoolLink"
+                                >
+                                <Button color="primary" variant="contained" size="small">
+                                    Visit the {schoolName} website
+                                </Button>
+                            </a>
                         </section>
                     </div>
                     <section className="charts">
