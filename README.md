@@ -1,9 +1,8 @@
-This project is an interview assignment for Education Analytics Junior Dev position. It was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is an interview assignment for Education Analytics Junior Dev position.
 
 Please direct any questions to my [e-mail](gz@gisellezatonyl.com)
 
-To view the project, please clone, fork or download the repository, cd into the directory and follow the directions below.
-
+To view the project, please fork the repository to your account, clone it into your machine using: git clone https://github.com/GiselleDZ/gdz-EdAnalytics-Test.git, cd into the directory and follow the directions below.
 
 ### `npm install`
 
